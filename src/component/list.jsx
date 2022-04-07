@@ -16,11 +16,18 @@ class AnimalList extends React.Component {
     }
 
     handelAnimalClick(e){
-
         this.setState({modalActive: e.currentTarget.id})
 
         debugger
 
+    }
+
+    retShowModal(id){
+        return(
+            <div onClick={this.closeModal} className="modal-backdrop">
+                <div className="show-modal" onClick={(e) => e.stopPropagation()}> <AnimalShow id={id}/> </div>
+            </div>
+        )
     }
 
     closeModal(){
@@ -35,7 +42,6 @@ class AnimalList extends React.Component {
         let requestOptions = {
             method: 'GET',
             headers: myHeaders,
-            redirect: 'follow'
         };
 
         const retValData = await fetch("https://animalrestapi.azurewebsites.net/Animal/List?candidateID=cc716bca-578b-4ea3-935b-4cabac7f9696", requestOptions)
@@ -53,12 +59,11 @@ class AnimalList extends React.Component {
 
         return(
             <div className="main-list-div">
-                {this.state.modalActive ? <div onClick={this.closeModal} className="modal-backdrop">
-                    <div className="show-modal" onClick={(e) => e.stopPropagation()}> <AnimalShow id={Number(this.state.id)}/> </div>
-                </div> : null}
+                {this.state.modalActive ? this.retShowModal(this.state.modalActive) : null}
 
                 {this.state.list ? this.state.list.map((res, idx) => 
                     <div id={res.id} key={idx + '_animal'} className='animal-in-list' onClick={this.handelAnimalClick}>
+
                         <img className='animal_img' src={res.imageURL} alt="" />
                         <div>{res.id}</div>
                         <div>{res.commonName}</div>
