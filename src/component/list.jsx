@@ -1,23 +1,30 @@
 import React from "react";
+import AnimalShow from './show';
 
 class AnimalList extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
+            modalActive: false,
             list: false
         }
 
-        this.renderList = this.renderList.bind(this)
         this.fetchAnimalListData = this.fetchAnimalListData.bind(this)
+        this.handelAnimalClick = this.handelAnimalClick.bind(this)
+        this.closeModal = this.closeModal.bind(this)
     }
 
-    renderList(){
-        if(this.state.list){
-            return(
-                <div> this will be the list</div>
-            )
-        }
+    handelAnimalClick(e){
+
+        this.setState({modalActive: e.currentTarget.id})
+
+        debugger
+
+    }
+
+    closeModal(){
+        this.setState({modalActive: false})
     }
 
     async fetchAnimalListData(){
@@ -46,12 +53,15 @@ class AnimalList extends React.Component {
 
         return(
             <div className="main-list-div">
+                {this.state.modalActive ? <div onClick={this.closeModal} className="modal-backdrop">
+                    <div className="show-modal" onClick={(e) => e.stopPropagation()}> <AnimalShow id={Number(this.state.id)}/> </div>
+                </div> : null}
+
                 {this.state.list ? this.state.list.map((res, idx) => 
-                    <div key={idx + '_animal'}>
+                    <div id={res.id} key={idx + '_animal'} className='animal-in-list' onClick={this.handelAnimalClick}>
                         <img className='animal_img' src={res.imageURL} alt="" />
                         <div>{res.id}</div>
                         <div>{res.commonName}</div>
-                        {console.log(res)}
                     </div>)
                 : <div>List is loading...</div> }
             </div>
