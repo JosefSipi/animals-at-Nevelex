@@ -1,0 +1,11 @@
+.main-list-div{
+    border: 1px black solid;
+    background-color: rgba(172, 172, 172, 0.133);
+    border-radius: 15px;
+}
+
+.animal_img{
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+}

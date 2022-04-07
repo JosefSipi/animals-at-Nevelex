@@ -46,8 +46,14 @@ class AnimalList extends React.Component {
 
         return(
             <div className="main-list-div">
-                this is my list component page
-                {this.state.list ? this.state.list.map(res => <div key={res.commonName}>{res.commonName}</div>) : <div>List is loading...</div> }
+                {this.state.list ? this.state.list.map((res, idx) => 
+                    <div key={idx + '_animal'}>
+                        <img className='animal_img' src={res.imageURL} alt="" />
+                        <div>{res.id}</div>
+                        <div>{res.commonName}</div>
+                        {console.log(res)}
+                    </div>)
+                : <div>List is loading...</div> }
             </div>
         )
     }
