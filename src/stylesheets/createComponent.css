@@ -11,12 +11,18 @@ input{
 }
 
 input.input-red{
-    
-    background: rgba(255, 0, 0, 0.101);
+    text-indent: 1ch;
+    background: #ffd2d2;
+    border: none;
+    border-radius: 9px;
 }
 
-.input-normal{
-    
+input{
+    text-indent: 1ch;
+    border: none;
+    border-radius: 9px;
+    margin-left: .5ch;
+    margin-right: .5ch;
 }
 
 .label-red{
@@ -41,4 +47,13 @@ input.input-red{
     padding: 20px;
     margin-top: 25px;
     margin-bottom: 25px;
+
+    width: 100%;
+    justify-content: center;
+}
+
+.button-create-animal{
+    border-radius: 9px;
+    border: none;
+
 }

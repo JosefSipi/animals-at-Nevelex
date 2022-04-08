@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/animals-at-Nevelex/static/css/main.eb2a6f31.css",
+    "main.js": "/animals-at-Nevelex/static/js/main.73c76812.js",
+    "static/js/787.56876478.chunk.js": "/animals-at-Nevelex/static/js/787.56876478.chunk.js",
+    "static/media/error.png": "/animals-at-Nevelex/static/media/error.d6c99267d43016fca654.png",
+    "index.html": "/animals-at-Nevelex/index.html",
+    "main.eb2a6f31.css.map": "/animals-at-Nevelex/static/css/main.eb2a6f31.css.map",
+    "main.73c76812.js.map": "/animals-at-Nevelex/static/js/main.73c76812.js.map",
+    "787.56876478.chunk.js.map": "/animals-at-Nevelex/static/js/787.56876478.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb2a6f31.css",
+    "static/js/main.73c76812.js"
+  ]
+}

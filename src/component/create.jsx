@@ -214,7 +214,7 @@ class AnimalCreate extends React.Component{
                         </div>
                     }
 
-                    <button type="submit">Post Animal</button>
+                    <button className="button-create-animal" type="submit">Add new animal</button>
                     
                 </form>
             </div>
