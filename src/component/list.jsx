@@ -16,7 +16,7 @@ class AnimalList extends React.Component {
     }
 
     defaultImg(e){
-        debugger
+        
         e.target.src = errorImg
     }
 
@@ -37,7 +37,7 @@ class AnimalList extends React.Component {
     }
 
     render(){
-        debugger
+        
 
         if(!this.props.list){
             return null

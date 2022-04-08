@@ -16,12 +16,12 @@ class AnimalShow extends React.Component{
     }
 
     defaultImg(e){
-        debugger
+        
         e.target.src = errorImg
     }
 
     async deleteClicked(){
-        debugger
+        
         let myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 

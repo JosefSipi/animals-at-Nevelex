@@ -32,7 +32,7 @@ class AnimalCreate extends React.Component{
     // async runInputValidations(){
 
     //     let validation = await this.isValidUrl(this.state.newAnimal.imageURL)
-    //     debugger
+    //     
 
     //     if(this.state.otherInputs){
     //         return true
@@ -43,7 +43,7 @@ class AnimalCreate extends React.Component{
 
 
    validations(){
-        debugger
+        
 
         const animal = this.state.newAnimal
         let newErrState = {
@@ -53,7 +53,7 @@ class AnimalCreate extends React.Component{
                 imageURL: true
             };
 
-        debugger
+        
         // let validURLStatus = this.isValidUrl(animal.imageURL)
 
         if(animal.commonName.length === 0) newErrState['commonName'] = false
@@ -63,32 +63,32 @@ class AnimalCreate extends React.Component{
         
         let errorPresent = Object.values(newErrState).includes(false);
 
-        debugger
+        
 
         if(errorPresent){
             return false
         } else {
-            debugger
+            
             return true
         }
     }
 
     // async isValidUrl(url){
-    //     debugger
+    //     
     //     // return true
         
     //     let image = await new Image();
         
     //     image.onload = function( validations = this.validations) {
     //         if (this.width > 0) {
-    //             debugger
+    //             
     //             // this.setState({validURL: true})
     //             // validations()
     //             return true
     //         }
     //     }
     //     image.onerror = function() {
-    //         debugger
+    //         
     //         // this.setState({validURL: false})
     //         return false
     //     }
@@ -99,20 +99,20 @@ class AnimalCreate extends React.Component{
     onFormSubmit(e){
         e.preventDefault();
         this.setState({errActive: true})
-        debugger
+        
         // let areValidInputs = this.runInputValidations()
         // let areValidInputs = this.validations()
 
 
         if (this.validations() === true) {
-            debugger
+            
             this.postAnimal()
         }
 
     }
 
     async postAnimal(){
-        debugger
+        
 
         let newAS = this.state.newAnimal
 
@@ -143,7 +143,7 @@ class AnimalCreate extends React.Component{
                 imageURL: ''
             }
         })
-        debugger
+        
         this.props.loadAnimalList()
         this.setState({errActive: false})
 
@@ -160,7 +160,7 @@ class AnimalCreate extends React.Component{
 
     render(){
 
-        debugger
+        
 
         return(
             <div className="create-div-main">
