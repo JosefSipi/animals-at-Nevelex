@@ -15,6 +15,7 @@ class App extends React.Component{
   }
 
   async fetchAnimalList(){
+    debugger
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 

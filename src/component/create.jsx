@@ -12,48 +12,87 @@ class AnimalCreate extends React.Component{
                 imageURL: ''
             },
             inputError: {
-                commonName: '',
-                scientificName: '',
-                family: '',
-                imageURL: ''
-            }
+                commonName: true,
+                scientificName: true,
+                family: true,
+                imageURL: true
+            },
+            errActive: false,
+            validURL: null
         }
         this.inputChange = this.inputChange.bind(this)
         this.validations = this.validations.bind(this)
         this.onFormSubmit = this.onFormSubmit.bind(this)
         this.postAnimal = this.postAnimal.bind(this)
+        this.isValidUrl = this.isValidUrl.bind(this)
     }
 
 
     validations(){
+        debugger
+
         const animal = this.state.newAnimal
-        let newErrState = {...this.state.inputError};
+        let newErrState = {
+                commonName: true,
+                scientificName: true,
+                family: true,
+                imageURL: true
+            };
+
+        debugger
+        let validURLStatus = this.isValidUrl(animal.imageURL)
 
         if(animal.commonName.length === 0) newErrState['commonName'] = false
         if(animal.scientificName.length === 0) newErrState['scientificName'] = false
         if(animal.family.length === 0) newErrState['family'] = false
-        if(animal.imageURL.length === 0) newErrState['imageURL'] = false
-
-        let exists = Object.values(newErrState).includes(false);
-
-        if(exists){
-            this.setState({inputError: newErrState})
-            return
-        } else {
-            this.postAnimal()
-            debugger
-            this.props.loadAnimalList()
-            debugger
-        }
+        if(animal.imageURL.length === 0 || !validURLStatus) newErrState['imageURL'] = false
         
+        let errorPresent = Object.values(newErrState).includes(false);
+
+        debugger
+
+        if(errorPresent){
+            return false
+        } else {
+            debugger
+            return true
+        }
+    }
+
+    isValidUrl(url){
+        debugger
+        return true
+        
+        // let image = new Image();
+        // image.src = url;
+
+        // image.onload = function() {
+        //     if (this.width > 0) {
+        //         debugger
+        //         // this.setState({validURL: true})
+        //         return true
+        //     }
+        // }
+        // image.onerror = function(){
+        //     debugger
+        //     // this.setState({validURL: false})
+        //     return false
+        // }
     }
 
     onFormSubmit(e){
+        this.setState({errActive: true})
+        debugger
         e.preventDefault();
-        this.validations()
+
+        if (this.validations() === true) {
+            this.postAnimal()
+        }
+
     }
 
     async postAnimal(){
+        debugger
 
         let newAS = this.state.newAnimal
 
@@ -82,18 +121,16 @@ class AnimalCreate extends React.Component{
                 scientificName: '',
                 family: '',
                 imageURL: ''
-            },
-            inputError: {
-                commonName: '',
-                scientificName: '',
-                family: '',
-                imageURL: ''
             }
         })
+        debugger
+        this.props.loadAnimalList()
+        this.setState({errActive: false})
 
     }
 
     inputChange(field){
+        
         let prevState = this.state.newAnimal
         return(e) => {
             prevState[field] = e.currentTarget.value
@@ -102,15 +139,60 @@ class AnimalCreate extends React.Component{
     }
 
     render(){
-        
+
+        debugger
+
         return(
             <div>
                 <form className="main-create-div" onSubmit={this.onFormSubmit} >
 
-                    <input value={this.state.newAnimal.commonName} placeholder="Common Name" type="text" onChange={this.inputChange('commonName')} />
-                    <input value={this.state.newAnimal.scientificName} placeholder="Scientific Name" type="text" onChange={this.inputChange('scientificName')} />
-                    <input value={this.state.newAnimal.family} placeholder="Family" type="text" onChange={this.inputChange('family')} />
-                    <input value={this.state.newAnimal.imageURL} placeholder="Photo URL" type="text" onChange={this.inputChange('imageURL')} />
+                    {this.state.errActive && this.state.newAnimal.commonName.length === 0 ? 
+                        <div className="input-create">
+                            <input className='input-red' id='common-name' value={this.state.newAnimal.commonName} placeholder="Common Name" type="text" onChange={this.inputChange('commonName')} />
+                            <label className="label-red" htmlFor='common-name' >Enter a name</label>
+                        </div>
+                        :
+                        <div className="input-create">
+                            <input className='input-normal' id='common-name' value={this.state.newAnimal.commonName} placeholder="Common Name" type="text" onChange={this.inputChange('commonName')} />
+                            <label htmlFor='common-name' >Animal's common name</label>
+                        </div>
+                    }
+
+                    {this.state.errActive && this.state.newAnimal.scientificName.length === 0 ? 
+                        <div className="input-create">
+                            <input className='input-red' id='common-name' value={this.state.newAnimal.scientificName} placeholder="Scientific Name" type="text" onChange={this.inputChange('scientificName')} />
+                            <label className='label-red' htmlFor='common-name' >Enter scientific name</label>
+                        </div>
+                        :
+                        <div className="input-create">
+                            <input className='input-normal' id='common-name' value={this.state.newAnimal.scientificName} placeholder="Scientific Name" type="text" onChange={this.inputChange('scientificName')} />
+                            <label htmlFor='common-name' >Animal's scientific name</label>
+                        </div>
+                    }
+
+                    {this.state.errActive && this.state.newAnimal.family.length === 0 ? 
+                        <div className="input-create">
+                            <input className='input-red' id='common-name' value={this.state.newAnimal.family} placeholder="Family" type="text" onChange={this.inputChange('family')} />
+                            <label className='label-red' htmlFor='common-name' >Enter family</label>
+                        </div>
+                        :
+                        <div className="input-create">
+                            <input className='input-normal' id='common-name' value={this.state.newAnimal.family} placeholder="Family" type="text" onChange={this.inputChange('family')} />
+                            <label htmlFor='common-name' >Animal's family</label>
+                        </div>
+                    }
+
+                    {this.state.errActive && (this.state.newAnimal.imageURL.length === 0)  ? 
+                        <div className="input-create">
+                            <input className='input-red' id='common-name' value={this.state.newAnimal.imageURL} placeholder="Image URL" type="text" onChange={this.inputChange('imageURL')} />
+                            <label className='label-red' htmlFor='common-name' >Enter valid image URL</label>
+                        </div>
+                        :
+                        <div className="input-create">
+                            <input className='input-normal' id='common-name' value={this.state.newAnimal.imageURL} placeholder="Image URL" type="text" onChange={this.inputChange('imageURL')} />
+                            <label htmlFor='common-name' >Animal's image URL</label>
+                        </div>
+                    }
 
                     <button type="submit">Post Animal</button>
                     

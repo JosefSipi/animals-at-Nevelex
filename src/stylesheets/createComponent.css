@@ -1,8 +1,34 @@
 .main-create-div{
+    display: flex;
+    flex-direction: row;
     border: solid 1px black;
     border-radius: 15px;
     padding: 20px;
     margin-top: 25px;
     margin-bottom: 25px;
     background-color: rgba(172, 172, 172, 0.133);
+}
+
+.input-create label{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 13px;
+}
+
+input{
+    height: 30px;
+}
+
+input.input-red{
+
+    background: rgba(255, 0, 0, 0.101);
+}
+
+.input-normal{
+
+}
+
+.label-red{
+    color: rgb(185, 0, 0);
 }

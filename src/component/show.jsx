@@ -3,15 +3,16 @@ import React from "react";
 class AnimalShow extends React.Component{
     constructor(props){
         super(props)
-        
+
         this.state = {
             animal_id: props.id,
             animal: null
         }
         this.fetchEntry = this.fetchEntry.bind(this)
+        this.deleteClicked = this.deleteClicked.bind(this)
     }
 
-
+    
 
     componentDidMount(){
         this.fetchEntry(this.state.animal_id)
@@ -42,6 +43,8 @@ class AnimalShow extends React.Component{
                 <div>Common Name: {this.state.animal.commonName}</div>
                 <div>Animal scientific Name: {this.state.animal.scientificName}</div>
                 <div>Family name: {this.state.animal.family}</div>
+
+                <button onClick={this.deleteClicked}></button>
             </div>
         )
 
