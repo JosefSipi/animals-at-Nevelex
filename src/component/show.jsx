@@ -32,7 +32,6 @@ class AnimalShow extends React.Component{
 
         const retStatus = await fetch(`https://animalrestapi.azurewebsites.net/Animal/Delete/?candidateID=cc716bca-578b-4ea3-935b-4cabac7f9696&id=${this.state.animal_id}`, requestOptions)
         const status = await retStatus.json()
-        console.log(status)
 
         this.props.loadAnimalList()
         this.props.closeModal()

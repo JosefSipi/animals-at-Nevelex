@@ -25,22 +25,7 @@ class AnimalCreate extends React.Component{
         this.validations = this.validations.bind(this)
         this.onFormSubmit = this.onFormSubmit.bind(this)
         this.postAnimal = this.postAnimal.bind(this)
-        // this.isValidUrl = this.isValidUrl.bind(this)
-        // this.runInputValidations = this.runInputValidations.bind(this)
     }
-
-    // async runInputValidations(){
-
-    //     let validation = await this.isValidUrl(this.state.newAnimal.imageURL)
-    //     
-
-    //     if(this.state.otherInputs){
-    //         return true
-    //     } else {
-    //         return false
-    //     }
-    // }
-
 
    validations(){
         
@@ -53,17 +38,12 @@ class AnimalCreate extends React.Component{
                 imageURL: true
             };
 
-        
-        // let validURLStatus = this.isValidUrl(animal.imageURL)
-
         if(animal.commonName.length === 0) newErrState['commonName'] = false
         if(animal.scientificName.length === 0) newErrState['scientificName'] = false
         if(animal.family.length === 0) newErrState['family'] = false
         if(animal.imageURL.length === 0) newErrState['imageURL'] = false
         
         let errorPresent = Object.values(newErrState).includes(false);
-
-        
 
         if(errorPresent){
             return false
@@ -73,37 +53,10 @@ class AnimalCreate extends React.Component{
         }
     }
 
-    // async isValidUrl(url){
-    //     
-    //     // return true
-        
-    //     let image = await new Image();
-        
-    //     image.onload = function( validations = this.validations) {
-    //         if (this.width > 0) {
-    //             
-    //             // this.setState({validURL: true})
-    //             // validations()
-    //             return true
-    //         }
-    //     }
-    //     image.onerror = function() {
-    //         
-    //         // this.setState({validURL: false})
-    //         return false
-    //     }
-
-    //     image.src = url;
-    // }
-
     onFormSubmit(e){
         e.preventDefault();
         this.setState({errActive: true})
-        
-        // let areValidInputs = this.runInputValidations()
-        // let areValidInputs = this.validations()
-
-
+ 
         if (this.validations() === true) {
             
             this.postAnimal()
@@ -112,8 +65,6 @@ class AnimalCreate extends React.Component{
     }
 
     async postAnimal(){
-        
-
         let newAS = this.state.newAnimal
 
         let myHeaders = new Headers();
