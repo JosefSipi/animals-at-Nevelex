@@ -1,6 +1,9 @@
 .animal_img_show_modal{
-    width: 70px;
-    height: 70px;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
 }
 
 .parent-delet{
@@ -9,17 +12,17 @@
 }
 
 .delete-confirm{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    flex-direction: column;
-
-    justify-self: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 28ch;
+    height: 10ch;
+    margin-left: -14ch;
+    margin-top: -5ch;
     align-self: center;
-
-    width: 90%;
-    background-color: aqua;
+    background-color: hsl(162deg 33% 57%);
+    border-radius: 9px;
+    padding: 20px;
     
 }
 
@@ -34,4 +37,60 @@
 
 .delete-msg{
     padding: 10px;
+}
+
+.modal-div-main{
+    display: flex;
+
+}
+
+.show-modal-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    margin-left: 2ch;
+    margin-right: 2ch;
+}
+
+.show-modal-txt div{
+    padding-top: 0.5ch;
+    padding-bottom: 0.5ch;
+    color: hsl(177deg 22% 41%);
+
+}
+
+
+.img-div-on-modal{
+    overflow: hidden;
+    border-radius: 9px 0px 0px 9px;
+    max-width: 50ch;
+    max-height: 74ch;
+    
+}
+
+.delete-btn-primary{
+    align-self: center;
+    justify-self: flex-end;
+    background: hsl(341deg 15% 52%);
+    border-radius: 9px;
+    padding: 9px;
+    margin-top: 10px;
+    border: none;
+}
+
+.delete-buttons button{
+    align-self: center;
+    justify-self: flex-end;
+    background: hsl(341deg 15% 52%);
+    border-radius: 9px;
+    padding: 9px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
 }

@@ -18,17 +18,31 @@ class AnimalCreate extends React.Component{
                 imageURL: true
             },
             errActive: false,
-            validURL: null
+            validURL: null,
+            otherInputs: false
         }
         this.inputChange = this.inputChange.bind(this)
         this.validations = this.validations.bind(this)
         this.onFormSubmit = this.onFormSubmit.bind(this)
         this.postAnimal = this.postAnimal.bind(this)
-        this.isValidUrl = this.isValidUrl.bind(this)
+        // this.isValidUrl = this.isValidUrl.bind(this)
+        // this.runInputValidations = this.runInputValidations.bind(this)
     }
 
+    // async runInputValidations(){
 
-    validations(){
+    //     let validation = await this.isValidUrl(this.state.newAnimal.imageURL)
+    //     debugger
+
+    //     if(this.state.otherInputs){
+    //         return true
+    //     } else {
+    //         return false
+    //     }
+    // }
+
+
+   validations(){
         debugger
 
         const animal = this.state.newAnimal
@@ -40,12 +54,12 @@ class AnimalCreate extends React.Component{
             };
 
         debugger
-        let validURLStatus = this.isValidUrl(animal.imageURL)
+        // let validURLStatus = this.isValidUrl(animal.imageURL)
 
         if(animal.commonName.length === 0) newErrState['commonName'] = false
         if(animal.scientificName.length === 0) newErrState['scientificName'] = false
         if(animal.family.length === 0) newErrState['family'] = false
-        if(animal.imageURL.length === 0 || !validURLStatus) newErrState['imageURL'] = false
+        if(animal.imageURL.length === 0) newErrState['imageURL'] = false
         
         let errorPresent = Object.values(newErrState).includes(false);
 
@@ -59,33 +73,39 @@ class AnimalCreate extends React.Component{
         }
     }
 
-    isValidUrl(url){
-        debugger
-        return true
+    // async isValidUrl(url){
+    //     debugger
+    //     // return true
         
-        // let image = new Image();
-        // image.src = url;
+    //     let image = await new Image();
+        
+    //     image.onload = function( validations = this.validations) {
+    //         if (this.width > 0) {
+    //             debugger
+    //             // this.setState({validURL: true})
+    //             // validations()
+    //             return true
+    //         }
+    //     }
+    //     image.onerror = function() {
+    //         debugger
+    //         // this.setState({validURL: false})
+    //         return false
+    //     }
 
-        // image.onload = function() {
-        //     if (this.width > 0) {
-        //         debugger
-        //         // this.setState({validURL: true})
-        //         return true
-        //     }
-        // }
-        // image.onerror = function(){
-        //     debugger
-        //     // this.setState({validURL: false})
-        //     return false
-        // }
-    }
+    //     image.src = url;
+    // }
 
     onFormSubmit(e){
+        e.preventDefault();
         this.setState({errActive: true})
         debugger
-        e.preventDefault();
+        // let areValidInputs = this.runInputValidations()
+        // let areValidInputs = this.validations()
+
 
         if (this.validations() === true) {
+            debugger
             this.postAnimal()
         }
 
@@ -143,7 +163,7 @@ class AnimalCreate extends React.Component{
         debugger
 
         return(
-            <div>
+            <div className="create-div-main">
                 <form className="main-create-div" onSubmit={this.onFormSubmit} >
 
                     {this.state.errActive && this.state.newAnimal.commonName.length === 0 ? 
@@ -182,7 +202,7 @@ class AnimalCreate extends React.Component{
                         </div>
                     }
 
-                    {this.state.errActive && (this.state.newAnimal.imageURL.length === 0)  ? 
+                    {this.state.errActive && (this.state.newAnimal.imageURL.length === 0 || !this.state.validURL)  ? 
                         <div className="input-create">
                             <input className='input-red' id='common-name' value={this.state.newAnimal.imageURL} placeholder="Image URL" type="text" onChange={this.inputChange('imageURL')} />
                             <label className='label-red' htmlFor='common-name' >Enter valid image URL</label>

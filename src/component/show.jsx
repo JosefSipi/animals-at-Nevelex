@@ -1,4 +1,5 @@
 import React from "react";
+import errorImg from '../../src/error.png';
 
 class AnimalShow extends React.Component{
     constructor(props){
@@ -11,6 +12,12 @@ class AnimalShow extends React.Component{
         }
         this.fetchEntry = this.fetchEntry.bind(this)
         this.deleteClicked = this.deleteClicked.bind(this)
+        this.defaultImg = this.defaultImg.bind(this)
+    }
+
+    defaultImg(e){
+        debugger
+        e.target.src = errorImg
     }
 
     async deleteClicked(){
@@ -57,14 +64,19 @@ class AnimalShow extends React.Component{
         if(!this.state.animal) return null
         
         return(
-            <div>
-                <img className='animal_img_show_modal' src={this.state.animal.imageURL} alt='animal img' />
-                <div>Animal ID: {this.state.animal.id}</div>
-                <div>Common Name: {this.state.animal.commonName}</div>
-                <div>Animal scientific Name: {this.state.animal.scientificName}</div>
-                <div>Family name: {this.state.animal.family}</div>
+            <div className="modal-div-main">
+                <div className="img-div-on-modal">
+                    <img onError={this.defaultImg} className='animal_img_show_modal' src={this.state.animal.imageURL} alt='animal img' />
+                </div>
+                
+                <div className="show-modal-txt">
+                    <div>Animal ID: {this.state.animal.id}</div>
+                    <div>Common name: {this.state.animal.commonName}</div>
+                    <div>Animal scientific name: {this.state.animal.scientificName}</div>
+                    <div>Family name: {this.state.animal.family}</div>
+                    <button className='delete-btn-primary' onClick={() => this.setState({confirmDelet: true})}> Delete Animal </button>
+                </div>
 
-            <button onClick={() => this.setState({confirmDelet: true})}> Delete Animal </button>
                 {this.state.confirmDelet 
                 ? 
                 <div className="parent-delet">

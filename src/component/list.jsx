@@ -1,5 +1,6 @@
 import React from "react";
 import AnimalShow from './show';
+import errorImg from '../../src/error.png';
 
 class AnimalList extends React.Component {
     constructor(props){
@@ -11,6 +12,12 @@ class AnimalList extends React.Component {
         }
         this.handelAnimalClick = this.handelAnimalClick.bind(this)
         this.closeModal = this.closeModal.bind(this)
+        this.defaultImg = this.defaultImg.bind(this)
+    }
+
+    defaultImg(e){
+        debugger
+        e.target.src = errorImg
     }
 
     handelAnimalClick(e){
@@ -43,9 +50,14 @@ class AnimalList extends React.Component {
                 {this.props.list ? this.props.list.map((res, idx) => 
                     <div id={res.id} key={idx + '_animal'} className='animal-in-list' onClick={this.handelAnimalClick}>
 
-                        <img className='animal_img' src={res.imageURL} alt="" />
-                        <div>{res.id}</div>
-                        <div>{res.commonName}</div>
+                        <div className="img-div">
+                            <img onError={this.defaultImg} className='animal_img' src={res.imageURL} alt="" />
+                        </div>
+                        
+                        <div className="list-tile-txt">
+                            <div>Common name: {res.commonName}</div>
+                            <div>ID:  {res.id}</div>
+                        </div>
                     </div>)
                 : <div>List is loading...</div> }
             </div>
