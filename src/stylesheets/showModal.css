@@ -2,3 +2,36 @@
     width: 70px;
     height: 70px;
 }
+
+.parent-delet{
+    display: grid;
+
+}
+
+.delete-confirm{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+
+    justify-self: center;
+    align-self: center;
+
+    width: 90%;
+    background-color: aqua;
+    
+}
+
+.delete-buttons{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.delete-msg{
+    padding: 10px;
+}

@@ -20,7 +20,7 @@ class AnimalList extends React.Component {
     retShowModal(id){
         return(
             <div onClick={this.closeModal} className="modal-backdrop">
-                <div className="show-modal" onClick={(e) => e.stopPropagation()}> <AnimalShow id={id}/> </div>
+                <div className="show-modal" onClick={(e) => e.stopPropagation()}> <AnimalShow closeModal = {this.closeModal} loadAnimalList = {this.props.loadAnimalList} id={id}/> </div>
             </div>
         )
     }
