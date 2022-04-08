@@ -3,8 +3,7 @@ import React from "react";
 class AnimalShow extends React.Component{
     constructor(props){
         super(props)
-        debugger
-
+        
         this.state = {
             animal_id: props.id,
             animal: null

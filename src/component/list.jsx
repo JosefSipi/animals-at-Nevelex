@@ -9,17 +9,12 @@ class AnimalList extends React.Component {
             modalActive: false,
             list: false
         }
-
-        this.fetchAnimalListData = this.fetchAnimalListData.bind(this)
         this.handelAnimalClick = this.handelAnimalClick.bind(this)
         this.closeModal = this.closeModal.bind(this)
     }
 
     handelAnimalClick(e){
         this.setState({modalActive: e.currentTarget.id})
-
-        debugger
-
     }
 
     retShowModal(id){
@@ -34,34 +29,18 @@ class AnimalList extends React.Component {
         this.setState({modalActive: false})
     }
 
-    async fetchAnimalListData(){
-
-        let myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-        let requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-        };
-
-        const retValData = await fetch("https://animalrestapi.azurewebsites.net/Animal/List?candidateID=cc716bca-578b-4ea3-935b-4cabac7f9696", requestOptions)
-        const theList = await retValData.json()
-        this.setState({list: theList.list})
-
-    }
-
-    componentDidMount(){
-        this.fetchAnimalListData()
-    }
-
     render(){
         debugger
+
+        if(!this.props.list){
+            return null
+        }
 
         return(
             <div className="main-list-div">
                 {this.state.modalActive ? this.retShowModal(this.state.modalActive) : null}
 
-                {this.state.list ? this.state.list.map((res, idx) => 
+                {this.props.list ? this.props.list.map((res, idx) => 
                     <div id={res.id} key={idx + '_animal'} className='animal-in-list' onClick={this.handelAnimalClick}>
 
                         <img className='animal_img' src={res.imageURL} alt="" />
