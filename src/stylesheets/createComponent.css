@@ -1,0 +1,8 @@
+.main-create-div{
+    border: solid 1px black;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: rgba(172, 172, 172, 0.133);
+}

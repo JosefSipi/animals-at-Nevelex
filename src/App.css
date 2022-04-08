@@ -43,4 +43,6 @@
 
 @import './index.css';
 @import './stylesheets/listComponent.css';
-@import './stylesheets/showModal.css'
+@import './stylesheets/showModal.css';
+@import './stylesheets/createComponent.css';
+
