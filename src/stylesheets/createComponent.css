@@ -35,7 +35,7 @@ input{
     
     top: 0;
     
-    background-color: hsl(170deg 48% 35%);
+    background-color: hsl(0deg 0% 0% / 20%);
 
 
 }
@@ -43,6 +43,7 @@ input{
 .main-create-div{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     border-radius: 9px;
     padding: 20px;
     margin-top: 25px;
