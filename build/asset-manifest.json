@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/animals-at-Nevelex/static/css/main.eb2a6f31.css",
-    "main.js": "/animals-at-Nevelex/static/js/main.44e0f545.js",
+    "main.css": "/animals-at-Nevelex/static/css/main.f8c185a6.css",
+    "main.js": "/animals-at-Nevelex/static/js/main.e3db68d7.js",
     "static/js/787.56876478.chunk.js": "/animals-at-Nevelex/static/js/787.56876478.chunk.js",
     "static/media/error.png": "/animals-at-Nevelex/static/media/error.d6c99267d43016fca654.png",
     "index.html": "/animals-at-Nevelex/index.html",
-    "main.eb2a6f31.css.map": "/animals-at-Nevelex/static/css/main.eb2a6f31.css.map",
-    "main.44e0f545.js.map": "/animals-at-Nevelex/static/js/main.44e0f545.js.map",
+    "main.f8c185a6.css.map": "/animals-at-Nevelex/static/css/main.f8c185a6.css.map",
+    "main.e3db68d7.js.map": "/animals-at-Nevelex/static/js/main.e3db68d7.js.map",
     "787.56876478.chunk.js.map": "/animals-at-Nevelex/static/js/787.56876478.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb2a6f31.css",
-    "static/js/main.44e0f545.js"
+    "static/css/main.f8c185a6.css",
+    "static/js/main.e3db68d7.js"
   ]
 }

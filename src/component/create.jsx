@@ -27,8 +27,7 @@ class AnimalCreate extends React.Component{
         this.postAnimal = this.postAnimal.bind(this)
     }
 
-   validations(){
-        
+    validations(){
 
         const animal = this.state.newAnimal
         let newErrState = {
@@ -55,6 +54,7 @@ class AnimalCreate extends React.Component{
 
     onFormSubmit(e){
         e.preventDefault();
+      
         this.setState({errActive: true})
  
         if (this.validations() === true) {
@@ -101,6 +101,10 @@ class AnimalCreate extends React.Component{
     }
 
     inputChange(field){
+
+        // if(field === 'imageURL'){
+        //     this.setState({validURL: true})
+        // }
         
         let prevState = this.state.newAnimal
         return(e) => {
@@ -111,7 +115,14 @@ class AnimalCreate extends React.Component{
 
     render(){
 
-        
+        // let validations = {
+        //     comNam: this.state.newAnimal.commonName.length !== 0,
+        //     sciNam: this.state.newAnimal.scientificName.length !== 0,
+        //     fam: this.state.newAnimal.family.length !== 0,
+        //     url: this.state.newAnimal.imageURL.length !== 0
+        // }
+
+        // let errActive = this.state.errActive
 
         return(
             <div className="create-div-main">
@@ -153,7 +164,7 @@ class AnimalCreate extends React.Component{
                         </div>
                     }
 
-                    {this.state.errActive && (this.state.newAnimal.imageURL.length === 0 || !this.state.validURL)  ? 
+                    {this.state.errActive && (this.state.newAnimal.imageURL.length === 0 && !this.state.validURL)  ? 
                         <div className="input-create">
                             <input className='input-red' id='common-name' value={this.state.newAnimal.imageURL} placeholder="Image URL" type="text" onChange={this.inputChange('imageURL')} />
                             <label className='label-red' htmlFor='common-name' >Enter valid image URL</label>
