@@ -9,8 +9,5 @@
     "main.b65f0cdf.js.map": "/animals-at-Nevelex/static/js/main.b65f0cdf.js.map",
     "787.56876478.chunk.js.map": "/animals-at-Nevelex/static/js/787.56876478.chunk.js.map"
   },
-  "entrypoints": [
-    "static/css/main.f8c185a6.css",
-    "static/js/main.b65f0cdf.js"
-  ]
+  "entrypoints": ["static/css/main.f8c185a6.css", "static/js/main.b65f0cdf.js"]
 }

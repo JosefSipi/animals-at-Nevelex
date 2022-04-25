@@ -1,60 +1,56 @@
-
-.input-create label{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 13px;
+.input-create label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 13px;
 }
 
-input{
-    height: 30px;
+input {
+  height: 30px;
 }
 
-input.input-red{
-    text-indent: 1ch;
-    background: #ffd2d2;
-    border: none;
-    border-radius: 9px;
+input.input-red {
+  text-indent: 1ch;
+  background: #ffd2d2;
+  border: none;
+  border-radius: 9px;
 }
 
-input{
-    text-indent: 1ch;
-    border: none;
-    border-radius: 9px;
-    margin-left: .5ch;
-    margin-right: .5ch;
+input {
+  text-indent: 1ch;
+  border: none;
+  border-radius: 9px;
+  margin-left: 0.5ch;
+  margin-right: 0.5ch;
 }
 
-.label-red{
-    color: rgb(185, 0, 0);
+.label-red {
+  color: rgb(185, 0, 0);
 }
 
-.create-div-main{
-    position: fixed;
-    width: 100%;
-    
-    top: 0;
-    
-    background-color: hsl(0deg 0% 0% / 20%);
+.create-div-main {
+  position: fixed;
+  width: 100%;
 
+  top: 0;
 
+  background-color: hsl(0deg 0% 0% / 20%);
 }
 
-.main-create-div{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    border-radius: 9px;
-    padding: 20px;
-    margin-top: 25px;
-    margin-bottom: 25px;
+.main-create-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 9px;
+  padding: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 
-    width: 100%;
-    justify-content: center;
+  width: 100%;
+  justify-content: center;
 }
 
-.button-create-animal{
-    border-radius: 9px;
-    border: none;
-
+.button-create-animal {
+  border-radius: 9px;
+  border: none;
 }

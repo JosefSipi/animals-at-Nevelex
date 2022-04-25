@@ -1,72 +1,71 @@
-.main-list-div{
-
-        margin-top: 149px;
-    border-radius: 9px;
-    width: 90%;
+.main-list-div {
+  margin-top: 149px;
+  border-radius: 9px;
+  width: 90%;
 }
 
-.animal_img{
-    width: 300px;
-    height: auto;
-    border-radius: 9px;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+.animal_img {
+  width: 300px;
+  height: auto;
+  border-radius: 9px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
-.animal-in-list:hover{
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.049);
+.animal-in-list:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.049);
 }
 
-.animal-in-list{
-    margin: 20px;
-    border-radius: 9px;
+.animal-in-list {
+  margin: 20px;
+  border-radius: 9px;
 
-    display: flex;
-    /* background-color: hsl(180deg 100% 31%); */
-    justify-content: flex-start;
-    align-items: center;
-    overflow: hidden;
+  display: flex;
+  /* background-color: hsl(180deg 100% 31%); */
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
 }
-.img-div{
-    padding: 17px;
-    height: 27ch;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    /* background-color: hsl(25deg 71% 70%); */
-    border-radius: 9px;
-    margin: 8px;
-}
-
-.modal-backdrop{
-    position: fixed;
-    display: grid;
-    background: rgb(6, 6, 6, .63);
-    top:0px;
-    right:0px;
-    bottom:0px;
-    left:0px;
+.img-div {
+  padding: 17px;
+  height: 27ch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* background-color: hsl(25deg 71% 70%); */
+  border-radius: 9px;
+  margin: 8px;
 }
 
-.show-modal{
-    position: fixed;
-    align-self: center;
-    justify-self: center;
-    border-radius: 9px;
-    background-color: bisque;
-    z-index: 2;
-    max-width: 90%;
-    background: hsl(178deg 42% 66%);
+.modal-backdrop {
+  position: fixed;
+  display: grid;
+  background: rgb(6, 6, 6, 0.63);
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 
-.list-tile-txt{
-    font-size: 2ch;
-    line-height: 4ch;
-    flex-grow: 1;
-    text-align: start;
-    padding: 1ch;
+.show-modal {
+  position: fixed;
+  align-self: center;
+  justify-self: center;
+  border-radius: 9px;
+  background-color: bisque;
+  z-index: 2;
+  max-width: 90%;
+  background: hsl(178deg 42% 66%);
+}
+
+.list-tile-txt {
+  font-size: 2ch;
+  line-height: 4ch;
+  flex-grow: 1;
+  text-align: start;
+  padding: 1ch;
 }
