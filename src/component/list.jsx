@@ -50,8 +50,8 @@ class AnimalList extends React.Component {
     return (
       <div className="main-list-div">
         {this.state.modalActive
-          ? this.retShowModal(this.state.modalActive)
-          : null}
+          && this.retShowModal(this.state.modalActive)
+        }
 
         {this.props.list ? (
           this.props.list.map((res, idx) => (

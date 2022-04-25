@@ -87,7 +87,7 @@ class AnimalShow extends React.Component {
           </button>
         </div>
 
-        {this.state.confirmDelet ? (
+        {this.state.confirmDelet &&
           <div className="parent-delet">
             <div className="delete-confirm">
               <div className="delete-msg">
@@ -102,7 +102,7 @@ class AnimalShow extends React.Component {
               </div>
             </div>
           </div>
-        ) : null}
+        }
       </div>
     );
   }
